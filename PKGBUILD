@@ -11,7 +11,7 @@ license=('MIT')
 # _ZTI7QObject@@Qt_6". makepkg enables -flto=auto by default, so this must be
 # off or the package fails to build on a stock Arch system.
 options=('!lto')
-depends=('qt6-base' 'wl-clipboard')
+depends=('qt6-base' 'layer-shell-qt' 'wl-clipboard')
 makedepends=('git' 'gcc')
 provides=('kshot')
 conflicts=('kshot')
