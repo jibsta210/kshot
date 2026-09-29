@@ -630,6 +630,10 @@ void Overlay::mousePressEvent(QMouseEvent *e)
 {
     if (e->button() != Qt::LeftButton)
         return;
+    // Each screen has its own overlay. Keystrokes follow the one being used,
+    // otherwise Enter/Esc stay stuck on the screen that opened first.
+    activateWindow();
+    grabKeyboard();
     const QPoint pos = e->pos();
 
     const int idx = itemAtPoint(pos);

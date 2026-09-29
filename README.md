@@ -48,8 +48,8 @@ drag, annotate, copy, gone — not because Spectacle lacks capability.
 
 ## Install
 
-Requires Qt6 (`qt6-base`), a C++20 compiler, and `wl-clipboard` for clipboard
-support.
+Requires Qt6 (`qt6-base`), Layer Shell Qt (`layer-shell-qt`), a C++20 compiler,
+and `wl-clipboard` for clipboard support.
 
 ```bash
 make

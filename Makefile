@@ -14,7 +14,10 @@ CXXFLAGS ?= -O2 -Wall -Wextra
 # appended unconditionally instead of living in the default CXXFLAGS.
 REQFLAGS := -std=c++20 -fPIC
 REQLDFLAGS := -pie
-QTFLAGS := $(shell pkg-config --cflags --libs Qt6Widgets Qt6DBus Qt6Gui Qt6Core)
+# LayerShellQt places one surface on each output. xdg-shell fullscreen cannot:
+# KWin puts every fullscreen window on the output the window was created on,
+# which on a side-by-side layout is the left screen.
+QTFLAGS := $(shell pkg-config --cflags --libs Qt6Widgets Qt6DBus Qt6Gui Qt6Core) -lLayerShellQtInterface
 MOC := $(shell test -x /usr/lib/qt6/moc && echo /usr/lib/qt6/moc || \
          (test -x /usr/lib/qt6/libexec/moc && echo /usr/lib/qt6/libexec/moc || echo moc-qt6))
 SRC := src/capture.cpp src/telemetry.cpp src/icons.cpp src/clipboard.cpp \
